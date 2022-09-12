@@ -1,0 +1,89 @@
+.search{
+   padding-bottom: 1rem;
+   padding-top: 2rem;
+}
+
+.container{
+    margin:0px auto;
+    max-width: 1200px;
+}
+
+.inputSearch {
+    border-radius: 0.5rem;
+    padding: 0.5rem 5px;
+    width: 400px;
+    font-size: 1rem;
+    border: 2px solid #4ca92b;
+    margin-right: 0.4rem;
+    
+}
+
+.btnSearch {
+    border-radius: 0.5rem;
+    padding: 0.6rem 0.5rem;
+    color: white;
+    font-size: 1rem;
+    font-weight: bold;
+    border: none;
+    background-color: #4ca92b;
+    cursor: pointer;
+    transition: all 300ms;
+    box-sizing: border-box;
+}
+
+.btnSearch:hover {
+    background-color: rgb(7, 105, 15);
+    color: rgb(168, 167, 165)
+}
+
+.btnAllFoods {
+    border-radius: 0.5rem;
+    padding: 0.5rem 0.5rem;
+    color: white;
+    font-size: 1rem;
+    text-decoration: none;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    margin-left: 0.5rem;
+    background-color: #ff8109;
+    transition: all 300ms;
+}
+
+
+.btnAllFoods:hover{
+    background-color: #b85d09;
+}
+
+@media (max-width:768px){
+    
+     .container{
+         margin:0px auto;
+         width: 100%;
+         
+     }
+         
+}
+
+@media (max-width:650px){
+    
+    .inputSearch {
+       
+        width: 90%;
+    
+    }
+
+    .btnSearch {
+       
+        font-size: 0.9rem;
+        margin-top: 1rem;
+    }
+    
+   
+    .btnAllFoods {
+        font-size: 0.9rem;
+        margin-top: 1rem;
+    }
+    
+        
+}

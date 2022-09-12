@@ -1,0 +1,32 @@
+function subSetSum (nums, target) {
+  // Your code here:
+  console.log(nums)
+  console.log(target)
+
+
+  let sums = [0]
+  for (const num of nums) {
+    console.log(num)
+
+    let sumCopy = [...sums]
+    console.log(sumCopy)
+    for (const sum of sumCopy) {
+      const actualSum = sum + num
+      console.log(actualSum)
+
+      if(actualSum === target) return true
+      if(actualSum < target) sums.push(actualSum)
+      console.log(sums)
+    }
+  }
+  return false
+}
+
+module.exports = subSetSum
+
+// O(2^n)
+
+console.log(subSetSum([1, 2, 10, 5, 3, 4], 999))//(true)
+console.log(subSetSum([1, 10, 5, 3], 19))//(true)
+console.log(subSetSum([1, 10, 5, 3], 2))//(false)
+console.log(subSetSum([1, 10, 5, 3], 10))//(true)

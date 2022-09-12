@@ -1,0 +1,104 @@
+.detail{
+    background-color: #dcf1dcdc;
+    max-width: 1200px;
+    min-height:900px;
+    margin:0px auto;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 2rem;
+    box-sizing: border-box;
+    justify-content: center;
+    margin-top: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0px 0px 5px 1px rgba(138,137,137,0.5);
+   -webkit-box-shadow: 0px 0px 5px 1px rgba(138,137,137,0.5);
+    -moz-box-shadow: 0px 0px 5px 1px rgba(138,137,137,0.5);
+}
+
+.detailImage{
+    width: 50%;
+    border:2px solid #ff8109;
+    box-sizing: border-box;
+}
+
+.divTitle{
+    width: 40%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.title{
+    text-transform: uppercase;
+    font-size: 2.5rem;
+    margin: 0px;
+    width: 100%;
+}
+.divTitle span{
+    font-size: 1.2rem;
+    width: 100%;
+   
+}
+.subTitle{
+    font-size: 1.5rem;
+    color:#25883d;
+    margin: 0px;
+    width: 100%;
+}
+.diet{
+    width:30% !important;
+    background-color:#408a52;
+    padding-bottom: 0px !important;
+    margin-left: 0.3rem;
+    margin-right: 0.3rem;
+    margin-bottom: 0.2rem;
+    margin-top: 0.2rem;
+    color:white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.divSummary{
+    width: 90%;
+   
+    display: flex;
+    flex-wrap: wrap;
+}
+.divSummary h2,.divSteps h2{
+   margin-top: 0.5rem;
+   margin-bottom: 0.5rem;
+   text-align: start; 
+}
+.divSummary p,.divSteps p{
+    width: 100%;
+    text-align: justify;
+   margin: 0px;
+   background-color: #ff800959;
+   padding:0.5rem 1rem;
+   color:rgb(56, 56, 56)
+}
+
+.divSteps{
+    width: 90%;
+    
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.btnHome{
+    background-color: #c96203;
+    border:none;
+    border-radius: 10px;
+    width: 15%;
+    padding: 0.5rem 0px;
+    margin-top: 1rem;
+    font-size: 1.1rem;
+    color:white;
+    cursor: pointer;
+    transition: all 300ms;
+    
+}
+.btnHome:hover{
+    background-color: #643304;
+    color:gray
+}

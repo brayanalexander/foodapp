@@ -1,0 +1,24 @@
+.sectionPagination{
+      padding: 0.5rem 0px;
+}
+
+
+
+.btn{
+    background-color: #25883d;
+    color:white;
+    padding: 0.3rem 0.6rem;
+    border-right: 1px solid orange;
+    cursor: pointer;
+    transition: all 300ms;
+}
+.btn:visited{
+    background-color: blueviolet;
+}
+.btn:hover{
+    background-color: orange;
+}
+.btn:active{
+    background-color: rgb(27, 27, 27);
+}
+

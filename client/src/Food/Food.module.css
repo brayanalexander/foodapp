@@ -1,0 +1,93 @@
+
+.cardFood{
+   background-color: white;
+    width: 96%;
+    border:2px solid #ff8109;
+    border-radius: 0.7rem;
+    overflow: hidden;
+    transition: all 300ms;
+}
+
+.cardFood:hover{
+    transform: scale(1.05);
+}
+
+
+.divImg img{
+    width:100%;
+    
+}
+
+.iconos{
+    display: flex;
+    justify-content: center;
+    font-size: 1.7rem;
+    padding-top: 1rem;
+    
+}
+
+.view,.edit,.delete{
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+    cursor:pointer;
+    transition: all 300ms;
+}
+.view{
+    color:#25883d
+}
+.view:hover{
+    color:#0a581e
+}
+.edit{
+    color:#ff8109
+}
+
+.edit:hover{
+    color:#8b490b
+}
+
+.delete{
+    color:#a01414
+}
+
+.delete:hover{
+    color:#690909
+}
+
+
+
+.title{
+    font-size: 1.3rem;
+    text-decoration: none;
+    color:#6e6e6e;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    display: block;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    transition: all 300ms;
+    text-transform:uppercase;
+}
+
+.title:hover{
+    color:#383838;
+    text-decoration:underline;
+}
+
+.diets{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:space-around;
+}
+
+.diets span{
+    font-size: 1.05rem;
+    background-color: #25883d;
+    color:white;
+    margin-bottom: 0.5rem;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+    padding:0.1rem 0.7rem;
+    text-transform: capitalize;
+}
+
