@@ -6,7 +6,7 @@ import { getRecipe } from "../redux/actions";
 import Loader from "../Loader/Loader";
 import styles from "./Detail.module.css";
 import { useHistory } from "react-router-dom";
-
+import ImgDefect from "../images/imgDefault.jpg"
 
 const Detail = (props) => {
    const dispatch = useDispatch();
@@ -26,7 +26,7 @@ const Detail = (props) => {
    useEffect(() => {
       dispatch(getRecipe(props.idRecipe))
       
-   }, [])
+   },[dispatch,props.idRecipe])
    return (
       <>
          <Nav />
@@ -34,7 +34,7 @@ const Detail = (props) => {
             {loader ? 
             <Loader/> 
             :<>
-            <img className={styles.detailImage} src={infoRecipe.image} alt={infoRecipe.title} />
+            <img className={styles.detailImage} src={infoRecipe.image ? infoRecipe.image: ImgDefect} alt={infoRecipe.title} />
             <div className={styles.divTitle}>
                <h1 className={styles.title}>{infoRecipe.title}</h1>
                <h2 className={styles.subTitle}>HealthScore</h2>

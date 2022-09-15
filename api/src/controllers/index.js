@@ -2,7 +2,8 @@ const axios = require('axios');
 const { Recipe, Diet } = require('../db.js');
 
 const cantRecetas = 100;
-
+//api key 2: d043af1cf26a4bf3bc96ff68a70cbfd6
+//api key 3: 3c886575f3304fe795128803b362847b
 const getRecipesApi = async () => {
     //OBTENFO LA INFO DE LA API
     const recipesApi = await axios.get('https://api.spoonacular.com/recipes/complexSearch?number=' + cantRecetas + '&addRecipeInformation=true&apiKey=' + process.env.MI_API_KEY)
@@ -113,7 +114,7 @@ const getRecipe = async (idRecipe) => {
 
 const postDiet = async (title, summary, healthScore, steps, image, diets) => {
     // VALIDO QUE TODOS LOS CAMPOS ESTEN LLENOS
-    if (!title || !summary || !healthScore || !steps || diets.length < 1) throw "Debe rellenar todos los campos.";
+    if (!title || !summary ) throw "Debe rellenar todos los campos.";//|| !healthScore || !steps || diets.length < 1
     // VERIFICO SI YA EXISTE EL NOMBRE EN LA BD
     const titleExist = await Recipe.findOne({
         where: {
@@ -142,6 +143,14 @@ const postDiet = async (title, summary, healthScore, steps, image, diets) => {
     newRecipe.addDiet(diet)
 
     return true
+}
+
+const deleteRecipe=async (id)=>{
+   const recipe=await Recipe.findByPk(id);
+   console.log(recipe)
+   if(recipe.name) throw "El ID de la receta no existe";
+   await Recipe.findByPk(id).then(info => info.destroy())
+   return "Recipe Eliminda"
 }
 
 
@@ -178,5 +187,6 @@ module.exports = {
     getRecipesApi,
     getRecipesDB,
     getAllRecipes,
-    getRecipe
+    getRecipe,
+    deleteRecipe
 }

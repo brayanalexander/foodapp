@@ -1,4 +1,5 @@
 import axios from "axios";
+const baseUrl = process.env.REACT_APP_API || 'http://localhost:3001';
 export const GET_ALL_RECIPES='GET_ALL_RECIPES';
 export const LOADER='LOADER';
 export const GET_DIETS='GET_DIETS';
@@ -8,10 +9,12 @@ export const FILTER_DBAPI='FILTER_DBAPI';
 export const GET_SERACH='GET_SERACH';
 export const GET_RECIPE='GET_RECIPE';
 export const CREATE_RECIPE='CREATE_RECIPE';
+export const DELETE_RECIPE='DELETE_RECIPE';
+export const CREATE_FALSE='CREATE_FALSE';
 
 export const getAllRecipes=()=>async(dispatch)=>{
   dispatch({type:LOADER,payload:true})
- await fetch('http://localhost:3001/recipes')
+ await fetch(baseUrl+'/recipes')
   .then(data=>data.json())
   .then(res=>{
     dispatch({
@@ -25,7 +28,7 @@ export const getAllRecipes=()=>async(dispatch)=>{
 
 export  const getSearch=(name)=>async(dispatch)=>{
   dispatch({type:LOADER,payload:true})
- const recipes=await axios.get('http://localhost:3001/recipes?name='+name).then(res=>{
+ const recipes=await axios.get(baseUrl+'/recipes?name='+name).then(res=>{
   dispatch({
     type:GET_SERACH,
     payload:res.data
@@ -47,7 +50,7 @@ export  const getSearch=(name)=>async(dispatch)=>{
 }
 
 export const postRecipe=(objRecipe)=>(dispatch)=>{
-  fetch('http://localhost:3001/recipes', {
+  fetch(baseUrl+'/recipes', {
     method: "POST",
     body: JSON.stringify(objRecipe),
     headers: {"Content-type": "application/json; charset=UTF-8"}
@@ -63,7 +66,7 @@ export const postRecipe=(objRecipe)=>(dispatch)=>{
 
 export const getRecipe=(idRecipe)=>async(dispatch)=>{
   dispatch({type:LOADER,payload:true})
- await fetch('http://localhost:3001/recipes/'+idRecipe)
+ await fetch(baseUrl+'/recipes/'+idRecipe)
  .then(res=>res.json())
  .then(data=>{
   dispatch({
@@ -75,8 +78,18 @@ export const getRecipe=(idRecipe)=>async(dispatch)=>{
  })
 }
 
+export const deleteRecipe=(id)=>async(dispatch)=>{
+  return await axios.delete(baseUrl+'/recipes/'+id).then(res=>{
+    dispatch({
+      type:DELETE_RECIPE,
+      payload:res.data,
+      id:id
+    })
+  })
+}
+
 export const getDiets=()=>async(dispatch)=>{
- const info=await axios.get('http://localhost:3001/diets').then(res=> res.data)
+ const info=await axios.get(baseUrl+'/diets').then(res=> res.data)
 return dispatch({
   type:GET_DIETS,
   payload:info
@@ -103,4 +116,11 @@ return {
   type:FILTER_DBAPI,
   payload:value
 }
+}
+
+export const CreateFalse=()=>{
+  return {
+    type:CREATE_FALSE,
+    payload:false
+  }
 }

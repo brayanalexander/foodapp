@@ -1,7 +1,7 @@
 const { Router } = require('express');
 // Importar todos los routers;
 // Ejemplo: const authRouter = require('./auth.js');
-const { getDiets, postDiet,getAllRecipes,getRecipe,getRecipesDB } = require('../controllers/index.js');
+const { getDiets, postDiet,getAllRecipes,getRecipe,getRecipesDB,deleteRecipe } = require('../controllers/index.js');
 
 
 const router = Router();
@@ -59,6 +59,16 @@ router.get('/recipes/:idRecipe',async(req,res)=>{
  
 })
 
+router.delete('/recipes/:id',async(req,res)=>{
+  try{
+    const {id}=req.params;
+      const result=await deleteRecipe(id);
+      return res.status(200).json(result)
+  }catch(error){
+      return res.status(400).json({error:error})
+  }
+})
+
 router.post('/recipes', async (req, res) => {
     const { title, summary, healthScore, steps, image, diets } = req.body;
     try {
@@ -79,6 +89,10 @@ router.get('/diets', async (req, res) => {
         res.status(400).send(error)
     }
 
+})
+
+router.get('/otraruta',(req,res)=>{
+    res.status(200).json({msg:"hola"})
 })
 
 module.exports = router;

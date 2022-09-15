@@ -26,7 +26,7 @@ const Foods = () => {
 
     useEffect(() => {
         dispatch(getAllRecipes());
-    }, [])
+    }, [dispatch])
 
 
 

@@ -81,7 +81,7 @@
    }
 
 
-   .respuesta{
+   .respuesta,.error{
     background-color: green;
     color:white;
     font-size: 1.5rem;
@@ -92,6 +92,9 @@
     left: 50%;
     width: 100%;
     transform: translateX(-50%);
+    }
+    .error{
+        background-color: brown;
     }
 
    @media (max-width:1300px){

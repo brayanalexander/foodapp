@@ -1,7 +1,7 @@
 /* eslint-disable import/no-extraneous-dependencies */
 const { expect } = require('chai');
 const session = require('supertest-session');
-const app = require('../../src/app.js');
+const app = require('../../src/routes/index.js');
 const { Recipe, conn } = require('../../src/db.js');
 
 const agent = session(app);
@@ -17,8 +17,8 @@ describe('Recipe routes', () => {
   beforeEach(() => Recipe.sync({ force: true })
     .then(() => Recipe.create(recipe)));
   describe('GET /recipes', () => {
-    it('should get 200', () =>
-      agent.get('/recipes').expect(200)
+    it('should get 200', async () =>
+      await agent.get('/recipes').expect(200)
     );
   });
 });

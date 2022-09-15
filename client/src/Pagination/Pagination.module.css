@@ -1,5 +1,6 @@
 .sectionPagination{
       padding: 0.5rem 0px;
+      
 }
 
 
@@ -12,13 +13,25 @@
     cursor: pointer;
     transition: all 300ms;
 }
-.btn:visited{
-    background-color: blueviolet;
-}
+
 .btn:hover{
     background-color: orange;
 }
 .btn:active{
     background-color: rgb(27, 27, 27);
+}
+
+@media (max-width:400px){
+    .btns{
+        width: 90%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin:0px auto
+    }
+    .btn{
+        width: 5%;
+        margin-top: 0.3rem;
+    }
 }
 

@@ -11,7 +11,7 @@ const Filter=({setCurrentPage,setOrden})=>{
 
   useEffect(()=>{
     dispatch(getDiets())
-  },[])
+  },[dispatch])
 
   const handleTypeDiet=(e)=>{
     dispatch(filterTypeDiet(e.target.value))

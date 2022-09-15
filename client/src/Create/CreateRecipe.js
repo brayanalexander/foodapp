@@ -2,7 +2,7 @@ import Nav from "../Nav/Nav";
 import Footer from "../Footer/Footer";
 import styles from "./CreateRecipe.module.css";
 import { useEffect, useState } from "react";
-import { getDiets,postRecipe } from "../redux/actions";
+import { getDiets,postRecipe,CreateFalse } from "../redux/actions";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 
@@ -76,7 +76,7 @@ const CreateRecipe = () => {
     }
 
     const submitDisabled=()=>{
-        if(!input.title || !input.summary || !input.steps || !input.healthScore || input.diets.length<1 ){
+        if(!input.title || !input.summary || !input.steps || !input.healthScore || input.healthScore>100 || input.healthScore<1 || input.diets.length<1 ){
             return true
         }
         return false
@@ -93,9 +93,9 @@ const CreateRecipe = () => {
         steps:'',
         diets:[]
         })
-        setCreate(true)
+       /* setCreate(true)*/
         setTimeout(()=>{
-           setCreate(false)
+           dispatch(CreateFalse())
         },3000)
 
     }
@@ -103,17 +103,17 @@ const CreateRecipe = () => {
     useEffect(()=>{
    dispatch(getDiets())
   
-    },[])
+    },[dispatch])
 
-    const [create,setCreate]=useState(false)
-    //const resCreate=useSelector(state=>state.create)
+    //const [create,setCreate]=useState(false)
+    const resCreate=useSelector(state=>state.create)
     
     
     return (
         <>
             <Nav />
             <section className={styles.sectionCreate}>
-                {create ? <div className={styles.respuesta}>Se Guardo Correctamente!!</div>:null}
+                {resCreate.error ? <div className={styles.error}>{resCreate.error}</div> :resCreate?<div className={styles.respuesta}>Se Guardo Correctamente!!</div>:null}
                                                     
                 <h1 className={styles.h1}>Create Recipe</h1>
                 

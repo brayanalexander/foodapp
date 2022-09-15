@@ -1,4 +1,4 @@
-import { GET_ALL_RECIPES, GET_DIETS, LOADER, FILTER_DIET, FILTER_ORDER, FILTER_DBAPI, GET_SERACH, GET_RECIPE,CREATE_RECIPE } from "../actions";
+import { GET_ALL_RECIPES, GET_DIETS, LOADER, FILTER_DIET, FILTER_ORDER, FILTER_DBAPI, GET_SERACH, GET_RECIPE, CREATE_RECIPE, DELETE_RECIPE,CREATE_FALSE } from "../actions";
 
 const initiState = {
     recipes: [],
@@ -6,7 +6,8 @@ const initiState = {
     recipe: {},
     diets: [],
     loader: false,
-    create:false
+    create: false,
+    delete: {}
 }
 
 const rootReducer = (state = initiState, action) => {
@@ -27,11 +28,23 @@ const rootReducer = (state = initiState, action) => {
                 ...state,
                 recipe: action.payload
             }
-            case CREATE_RECIPE:
+        case CREATE_RECIPE:
+            return {
+                ...state,
+                create: action.payload
+            }
+            case CREATE_FALSE:
                 return{
                     ...state,
                     create:action.payload
                 }
+        case DELETE_RECIPE:
+            return {
+                ...state,
+                recipes: state.recipes.filter(el => el.id !== action.id),
+                allRecipes: state.allRecipes.filter(el => el.id !== action.id),
+                delete: action.payload
+            }
         case LOADER:
             return {
                 ...state,

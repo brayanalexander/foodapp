@@ -16,9 +16,10 @@
 }
 
 .detailImage{
-    width: 50%;
+    max-width: 50%;
     border:2px solid #ff8109;
     box-sizing: border-box;
+    max-height: 370px;
 }
 
 .divTitle{
@@ -26,11 +27,12 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    max-height: 370px;
 }
 
 .title{
     text-transform: uppercase;
-    font-size: 2.5rem;
+    font-size: 2rem;
     margin: 0px;
     width: 100%;
 }
@@ -96,9 +98,78 @@
     color:white;
     cursor: pointer;
     transition: all 300ms;
-    
+    height: 40px;
 }
 .btnHome:hover{
     background-color: #643304;
     color:gray
+}
+
+@media (max-width:1200px){
+    .detail{
+        max-width: 90%;
+     }
+}
+
+@media (max-width:1090px){
+   
+     .detailImage{
+        max-width: 40%;
+       }
+    
+    .divTitle{
+        width: 50%;
+       
+    }
+    
+    .btnHome{
+     width: 20%;
+       
+    }
+}
+
+@media (max-width:800px){
+   
+    .detailImage{
+       max-width: 100%;
+       
+      }
+   
+   .divTitle{
+       width: 100%;
+      
+   }
+   
+   .btnHome{
+    width: 30%;
+      
+   }
+}
+
+@media (max-width:600px){
+
+    .detail{
+      padding: 1rem;
+     }
+   
+    .divSummary{
+        width: 100%;
+        margin-top: 2rem;
+    }
+    .divSteps{
+        width: 100%;
+      
+    }
+    .title{
+        
+        font-size: 1.5rem;
+        
+    }
+    .diet{
+        width:100% !important;
+     }
+   .btnHome{
+    width: 100%;
+      
+   }
 }
